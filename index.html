@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<title>Reservation Maker</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+
+<!-- Handlebars template -->
+		
+	<script id="reservations-list" type="text/x-handlebars-template">  		
+		<tr>
+			<td>{{name}}</td> 
+			<td>{{day}}</td>
+		</tr>  
+	</script>
+
+	<div id="navbar" class="navbar-collapse navbar-inverse collapse navbar-fixed-top">
+		<a href="#" class="navbar-brand">Tater's Coffee Shop</a>
+	</div>
+
+	<br>
+	<br>
+	<br>
+
+	<div class="container-fluid" id="pretty-pic">
+		<div class="row">
+			<div class="col">
+				<h2>Sign up to reserve a study room</h2>
+	<!-- Reservation Form -->
+				<form id= "reserver-form" action="">
+					<input id="name" type="text" placeholder="Name">
+					<div class="dropdown">
+						<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+						    Select A Time
+						    <span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu reservation-day">
+						    <li><a>6:00pm</a></li>
+						    <li><a>7:30pm</a></li>
+						    <li><a>9:00pm</a></li>
+						</ul>
+					</div>
+					<button type="submit">Make Reservation</button>
+				</form>
+			</div>
+			<div class="col">
+				<h3>Today's Reservations</h3>
+				<div class="existing-reservations">
+					<table>
+						<thead>
+							<th>Name</th>
+							<th>Date</th>
+						</thead>
+						<tbody class="reservation-list"></tbody>
+				 	</table> 	
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+    	<div class="twelve columns">
+		    <div id="map"></div>
+		    <script>
+		      function initMap() {
+		        var uluru = {lat: 40.4850, lng: -106.8317};
+		        var map = new google.maps.Map(document.getElementById('map'), {
+		          zoom: 8,
+		          center: uluru
+		        });
+		        var marker = new google.maps.Marker({
+		          position: uluru,
+		          map: map
+		        });
+		      }
+		    </script>
+		    <script async defer
+		    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRdkkXZVFGvGjMcflmq2FFfBFMUDq_Jyg&callback=initMap">
+		    </script>
+    	</div>
+	</div>	
+
+	<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRdkkXZVFGvGjMcflmq2FFfBFMUDq_Jyg&callback=initMap">
+    </script>
+	<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+	<script src="js/jquery-3.0.0.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="js/handlebars-v4.0.5.js"></script>
+	<script src="js/main.js"></script>
+
+</body>
+</html>
